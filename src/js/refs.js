@@ -1,5 +1,6 @@
 const refs = {
-   searchForm: document.querySelector('.search-form > input'),
+   searchForm: document.querySelector('.search-form'),
+   searchInput: document.querySelector('.search-form > input'),
    galleryRef: document.querySelector('.gallery')
 }
 

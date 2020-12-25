@@ -1,13 +1,20 @@
 import refs from "./js/refs.js";
 const debounce = require('lodash.debounce');
-import fetchImages from "./js/apiService.js"
-// import itemsTemplate from "./js/apiService.js";
+import fetchImages from "./js/apiService"
+import updateImagesMarkup from "./js/update-markup";
 import './styles.scss';
 
-refs.searchForm.addEventListener("input", debounce((e) => {
+refs.searchInput.addEventListener("input", debounce(e => {
    e.preventDefault();
 
-   const searchQuery = e.target.value;
-   fetchImages(searchQuery);
-}, 500)
-);
+   const input = e.target;
+   const searchQuery = input.value;
+
+   if (searchQuery === "") {
+      refs.galleryRef.innerHTML = "";
+   } else {
+      refs.galleryRef.innerHTML = "";
+      fetchImages(searchQuery).then(updateImagesMarkup);
+   };
+
+}, 1000));
