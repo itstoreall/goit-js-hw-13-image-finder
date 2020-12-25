@@ -1,13 +1,13 @@
-import "./js/apiService";
-import "./js/templating";
+import refs from "./js/refs.js";
+const debounce = require('lodash.debounce');
+import fetchImages from "./js/apiService.js"
+// import itemsTemplate from "./js/apiService.js";
 import './styles.scss';
 
-// 19654189-563fdc3d41881a1ec494ce492
+refs.searchForm.addEventListener("input", debounce((e) => {
+   e.preventDefault();
 
-const key = "19654189-563fdc3d41881a1ec494ce492";
-const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=cat&page=1&per_page=12&key=${key}`;
-
-fetch(url)
-   .then(res => res.json())
-   .then(({ hits }) => console.log(hits))
-   .catch(error => console.log(error));
+   const searchQuery = e.target.value;
+   fetchImages(searchQuery);
+}, 500)
+);
