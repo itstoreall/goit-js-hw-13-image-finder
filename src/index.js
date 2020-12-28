@@ -2,8 +2,8 @@ import apiService from "./js/apiService.js"
 import updateImagesMarkup from "./js/update-markup";
 import refs from "./js/refs.js";
 const debounce = require('lodash.debounce');
-// import fetchImages from "./js/apiService"
 import './styles.scss';
+import './js/modal-basicLightbox';
 
 refs.searchInput.addEventListener("input", debounce(e => {
    e.preventDefault();
@@ -13,13 +13,16 @@ refs.searchInput.addEventListener("input", debounce(e => {
 
    if (apiService.query.length < 1) {
       refs.galleryRef.innerHTML = "";
+      refs.loadMoreBtn.classList.remove('is-hidden');
+
    } else {
       refs.galleryRef.innerHTML = "";
-
       apiService.resetPage();
 
       apiService.fetchImages().then(hits => {
          updateImagesMarkup(hits);
+
+         refs.loadMoreBtn.classList.add('is-hidden');
       });
    };
 
@@ -30,3 +33,4 @@ refs.loadMoreBtn.addEventListener("click", () => {
          updateImagesMarkup(hits);
       });
 })
+

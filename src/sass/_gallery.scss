@@ -68,7 +68,7 @@
 }
 
 .button {
-  display: block;
+  display: none;
   padding: 10px 30px;
   margin: 0 auto;
   text-transform: uppercase;
@@ -81,4 +81,8 @@
   &:hover {
     background-color: rgb(61, 248, 186);
   }
+}
+
+.is-hidden {
+  display: block;
 }
