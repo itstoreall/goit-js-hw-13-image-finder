@@ -17,15 +17,18 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   background-color: rgba(255, 255, 255, 0.753);
   border-radius: 5px;
 }
 
 .search-form > input {
+  display: block;
+  margin: 0 auto;
   padding-left: 10px;
   width: 300px;
   height: 40px;
+  font-size: 16px;
   border-radius: 4px;
   border-color: #999999;
 }
@@ -33,40 +36,26 @@ body {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 80px;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 45px;
   padding-left: 0;
   list-style: none;
 }
 
 .gallery li {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
+  width: 22%;
 }
 
-@media screen and (min-width: 768px) {
-  .gallery li {
-    margin-bottom: 20px;
-    width: 44%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .gallery li {
-    width: 22%;
-  }
-  .gallery li:not(:nth-child(4n)) {
-    margin-right: 2.5%;
-  }
+.gallery li:not(:nth-child(4n)) {
+  margin-right: 2.5%;
 }
 
 .photo-card img {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   width: 100%;
-}
-
-@media screen and (min-width: 1200px) {
-  .photo-card img {
-    margin-bottom: 7px;
-  }
 }
 
 .stats {
@@ -79,19 +68,7 @@ body {
   margin-top: 0;
   margin-bottom: 10px;
   align-items: center;
-  font-size: 22px;
-}
-
-@media screen and (min-width: 768px) {
-  .stats .stats-item {
-    font-size: 16px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .stats .stats-item {
-    font-size: 12px;
-  }
+  font-size: 12px;
 }
 
 .stats .stats-item:not(:nth-child(4n)) {
@@ -100,18 +77,21 @@ body {
 
 .stats .material-icons {
   margin-right: 4px;
-  font-size: 22px;
+  font-size: 12px;
 }
 
-@media screen and (min-width: 768px) {
-  .stats .material-icons {
-    font-size: 16px;
-  }
+.button {
+  display: block;
+  padding: 10px 30px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  background-color: aquamarine;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-@media screen and (min-width: 1200px) {
-  .stats .material-icons {
-    font-size: 12px;
-  }
+.button:hover {
+  background-color: #3df8ba;
 }
 /*# sourceMappingURL=styles.css.map */
