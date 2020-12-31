@@ -1,16 +1,13 @@
+import refs from './refs';
 import * as basicLightbox from 'basiclightbox';
-import "basiclightbox/dist/basicLightbox.min.css"
+import "basiclightbox/dist/basicLightbox.min.css";
 
-const openModalBtnRef = document.querySelector('button[data-open-modal]');
-
-const modalTemplate = document.querySelector('#modal');
-
-const instance = basicLightbox.create(modalTemplate, {
+const instance = basicLightbox.create(refs.modalTemplate, {
    onShow(instance) {
-      const closeModalBtnRef = getCloseModalBtnRef(instance);
-      closeModalBtnRef.addEventListener('click', instance.close);
+      // const closeModalBtnRef = getCloseModalBtnRef(instance);
+      // closeModalBtnRef.addEventListener('click', instance.close);
 
-      window.addEventListener('keydown', closeModalHandler);
+      window.addEventListener('keydown', closeModalEsc);
    },
 
    onclose(instance) {
@@ -19,16 +16,30 @@ const instance = basicLightbox.create(modalTemplate, {
    },
 });
 
-openModalBtnRef.addEventListener('click', instance.show);
-   
-function getCloseModalBtnRef(parent){
-   return parent.element().querySelector('button[data-close-modal]');
-}
+refs.galleryRef.addEventListener('click', e => {
+   const targetId = e.target.id;
+   const dataId = e.target.dataset.openModal;
+   const targetSrc = e.target.dataset.src;
 
-function closeModalHandler(e) {
+   if (targetId === dataId) {
+      instance.show()
+      const modalImg = document.querySelector('.lightbox__image');
+      modalImg.src = targetSrc;
+   } 
+})
+
+// Close modal
+// function getCloseModalBtnRef(parent) {
+//    return parent.element().querySelector('.js-close-modal');
+// }
+
+// Close modal by escape
+function closeModalEsc(e) {
    if (e.code === 'Escape') {
       instance.close();
    };
    
-   window.removeEventListener('keydown', closeModalHandler);
+   window.removeEventListener('keydown', closeModalEsc);
 };
+
+export default instance;
