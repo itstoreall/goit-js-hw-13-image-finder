@@ -30,7 +30,15 @@ refs.searchInput.addEventListener("input", debounce(e => {
 
 refs.loadMoreBtn.addEventListener("click", () => {
    apiService.fetchImages().then(hits => {
-         updateImagesMarkup(hits);
+      updateImagesMarkup(hits);
+      
+      setTimeout(() => {
+         window.scrollTo({
+            top: document.documentElement.offsetHeight,
+            behavior: 'smooth'
+            });
+      }, 700)
+      
       });
 })
 

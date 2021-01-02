@@ -1,3 +1,5 @@
+import success from "./notifications.js";
+
 const key = "19654189-563fdc3d41881a1ec494ce492";
 
 export default {
@@ -11,6 +13,9 @@ export default {
          .then(res => res.json())
          .then(({ hits }) => {
             this.incrementPage();
+
+            success();
+            
             return hits;
          });
    },

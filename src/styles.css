@@ -81,7 +81,7 @@ body {
 }
 
 .button {
-  display: block;
+  display: none;
   padding: 10px 30px;
   margin: 0 auto;
   text-transform: uppercase;
@@ -94,5 +94,44 @@ body {
 
 .button:hover {
   background-color: #3df8ba;
+}
+
+.is-hidden {
+  display: block;
+}
+
+.basicLightbox:after {
+  content: 'X';
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  display: flex;
+  width: 2em;
+  height: 2em;
+  font-weight: 900;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal {
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.lightbox__content {
+  width: 100%;
+  position: relative;
+}
+
+.lightbox__content .lightbox__image {
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */
