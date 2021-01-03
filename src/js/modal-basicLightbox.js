@@ -4,9 +4,6 @@ import "basiclightbox/dist/basicLightbox.min.css";
 
 const instance = basicLightbox.create(refs.modalTemplate, {
    onShow(instance) {
-      // const closeModalBtnRef = getCloseModalBtnRef(instance);
-      // closeModalBtnRef.addEventListener('click', instance.close);
-
       window.addEventListener('keydown', closeModalEsc);
    },
 
@@ -28,12 +25,6 @@ refs.galleryRef.addEventListener('click', e => {
    } 
 })
 
-// Close modal
-// function getCloseModalBtnRef(parent) {
-//    return parent.element().querySelector('.js-close-modal');
-// }
-
-// Close modal by escape
 function closeModalEsc(e) {
    if (e.code === 'Escape') {
       instance.close();

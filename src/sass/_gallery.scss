@@ -29,10 +29,10 @@
   list-style: none;
 
   & li {
-    margin-bottom: 15px;
-    width: 22%;
+    margin-bottom: 25px;
+    width: 30%;
 
-    &:not(:nth-child(4n)) {
+    &:not(:nth-child(3n)) {
       margin-right: 2.5%;
     }
   }
@@ -81,6 +81,10 @@
   &:hover {
     background-color: rgb(61, 248, 186);
   }
+}
+
+.loading__span {
+  display: none;
 }
 
 .is-hidden {

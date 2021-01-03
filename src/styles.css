@@ -45,11 +45,11 @@ body {
 }
 
 .gallery li {
-  margin-bottom: 15px;
-  width: 22%;
+  margin-bottom: 25px;
+  width: 30%;
 }
 
-.gallery li:not(:nth-child(4n)) {
+.gallery li:not(:nth-child(3n)) {
   margin-right: 2.5%;
 }
 
@@ -94,6 +94,10 @@ body {
 
 .button:hover {
   background-color: #3df8ba;
+}
+
+.loading__span {
+  display: none;
 }
 
 .is-hidden {
